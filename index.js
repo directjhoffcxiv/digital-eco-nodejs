@@ -22,6 +22,8 @@ const app = express();
 // about the middleware, please refer to doc
 app.post('/webhook', line.middleware(config), (req, res) => {
   res.json(req.body.events)
+  console.console.log('wtf');
+  res.end();
   //client.replyMessage(req.body.events.message.text);
   //client.replyMessage('1234556');
   //Promise
