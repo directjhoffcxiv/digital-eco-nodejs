@@ -41,7 +41,7 @@ function handleEvent(event) {
 }
 
 // listen on port
-const port = 1234 || 3000;
+const port = 8080 || 3000;
 app.listen(port, () => {
   console.log(`listening on ${port}`);
 });
