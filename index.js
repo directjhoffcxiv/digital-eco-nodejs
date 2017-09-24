@@ -21,9 +21,12 @@ const app = express();
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
 app.post('/webhook', line.middleware(config), (req, res) => {
-  Promise
-    .all(req.body.events.map(handleEvent))
-    .then((result) => res.json(result));
+  res.json(req.body.events)
+  //client.replyMessage(req.body.events.message.text);
+  client.replyMessage('1234556');
+  //Promise
+    //.all(req.body.events.map(handleEvent))
+    //.then((result) => res.json(result));
 });
 
 // event handler
