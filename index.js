@@ -59,13 +59,10 @@ function handleEvent(event) {
 }
 
 function handleMessageEvent(event) {
-
+  var text1 = 'test';
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, function(cb){
-      var text1 = 'connected';
-      cb(text1);
-    });
+    return client.replyMessage(event.replyToken, text1);
 }
 
 function executeAzure(){
