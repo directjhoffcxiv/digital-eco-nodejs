@@ -59,14 +59,11 @@ function handleEvent(event) {
 }
 
 function handleMessageEvent(event) {
-    //var msg = {
-    //    type: 'text',
-    //    text: 'แสรดดดดดดดดด'
-    //  };
+
 
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, echo);
+    return client.replyMessage(event.replyToken, echo2);
 }
 
 
