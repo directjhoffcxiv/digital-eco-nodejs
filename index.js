@@ -44,26 +44,26 @@ const app = express();
 // about the middleware, please refer to doc
 app.post('/webhook', line.middleware(config), (req, res) => {
   Promise
-    .all(req.body.events.map(handleEvent))
+    .all(req.body.events.map(handleEvent,echo2))
     .then((result) => res.json(result));
 });
 
-function handleEvent(event) {
+function handleEvent(event,value) {
 
     console.log(event);
     if (event.type === 'message' && event.message.type === 'text') {
-        handleMessageEvent(event);
+        handleMessageEvent(event,value);
     } else {
         return Promise.resolve(null);
     }
 }
 
-function handleMessageEvent(event) {
+function handleMessageEvent(event,value) {
 
 
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, echo2);
+    return client.replyMessage(event.replyToken, value);
 }
 
 
