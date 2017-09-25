@@ -12,7 +12,7 @@ const config = {
   //channelSecret: 'b99029980da84da3980d785cf5737d63'
 };
 
-
+echo2 = '';
 //var  Connection = require('tedious').Connection;
 var configDB = {
     userName: 'anuwatk',
@@ -26,6 +26,7 @@ const ConnectionDB = new Connection(configDB);
 ConnectionDB.on('connect', function(err) {
     // If no error, then good to proceed.
         console.log("Connected");
+        echo2 = ' connect2';
         //const echo2 = { type: 'text', text: ' Connect2'};
         //executeStatement();
     });
@@ -41,11 +42,6 @@ const app = express();
 // register a webhook handler with middleware
 // about the middleware, please refer to doc
 app.post('/webhook', line.middleware(config), (req, res) => {
-  //res.json(req.body.events)
-  //console.console.log('wtf');
-  //res.end();
-  //client.replyMessage(req.body.events.message.text);
-  //client.replyMessage('1234556');
   Promise
       //client.replyMessage('1234556');
     .all(req.body.events.map(handleEvent))
@@ -70,7 +66,7 @@ function handleMessageEvent(event) {
 
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, echo);
+    return client.replyMessage(event.replyToken, echo+echo2);
 }
 
 
@@ -88,10 +84,6 @@ function handleMessageEvent(event) {
 //  return client.replyMessage(event.replyToken, msg);
 //}
 
-// listen on port
-//const port = 8080 || 3000;
-//app.listen(port, () => {
-  //console.log(`listening on ${port}`);
 
   app.set('port', (process.env.PORT || 5000));
 
