@@ -18,7 +18,11 @@ var configDB = {
     server: 'digitaleco.database.windows.net',
     options: {encrypt: true, database: 'Digital_ECO'}
 };
-var Connection = new Connection(configDB);
+var ConnectionDB = new Connection(configDB);
+ConnectionDB.on('connect', function(err) {
+    // If no error, then good to proceed.
+        console.log("Connected");
+    });
 // create LINE SDK client
 const client = new line.Client(config);
 
@@ -55,10 +59,8 @@ function handleMessageEvent(event) {
     //    type: 'text',
     //    text: 'แสรดดดดดดดดด'
     //  };
-    Connection.on('connect',function(err){
-      const echo = { type: 'text', text:'connect' };
-    });
-    //const echo = { type: 'text', text: event.message.text };
+
+    const echo = { type: 'text', text: event.message.text + 'connect' };
 
     return client.replyMessage(event.replyToken, echo);
 }
