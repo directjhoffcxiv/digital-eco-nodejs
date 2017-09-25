@@ -2,7 +2,7 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
-const Connection = require('tedious').Connection;
+//const Connection = require('tedious').Connection;
 
 // create LINE SDK config from env variables
 const config = {
@@ -69,6 +69,8 @@ function handleMessageEvent(event) {
 
 function executeAzure(){
 
+const Connection = require('tedious').Connection;
+
   var configDB = {
       userName: 'anuwatk',
       password: 'L@nnacom@1',
@@ -79,13 +81,7 @@ function executeAzure(){
   const ConnectionDB = new Connection(configDB);
 
   ConnectionDB.on('connect', function(err) {
-    if(err)
-    {
-      return { type: 'text', text: 'not Connected'};
-    }else {
       return { type: 'text', text: ' Connected'};
-    }
-
   });
 //return { type: 'text', text: 'สาดดดดดดk'};
 }
