@@ -62,7 +62,7 @@ function handleMessageEvent(event) {
    var text1 = { type: 'text', text: 'สาดดดดดด'};
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, echo + executeAzure());
+    return client.replyMessage(event.replyToken, executeAzure());
 }
 
 function executeAzure(){
