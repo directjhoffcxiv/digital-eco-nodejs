@@ -20,8 +20,9 @@ var configDB = {
     server: 'digitaleco.database.windows.net',
     options: {encrypt: true, database: 'Digital_ECO'}
 };
-const ConnectionDB = new Connection(configDB);
 
+const ConnectionDB = new Connection(configDB);
+/*
 //Connection = new Connection(configDB);
 ConnectionDB.on('connect', function(err) {
     // If no error, then good to proceed.
@@ -30,8 +31,7 @@ ConnectionDB.on('connect', function(err) {
         console.log(echo2);
         //const echo2 = { type: 'text', text: ' Connect2'};
         //executeStatement();
-    });
-
+*/
 
 // create LINE SDK client
 const client = new line.Client(config);
@@ -60,17 +60,16 @@ function handleEvent(event) {
 
 function handleMessageEvent(event) {
 
-
     const echo = { type: 'text', text: event.message.text };
-    if(echo2 == null){
-      echo2 = "null";
-    }else {
-      echo2 = "not null";
-    }
 
-    return client.replyMessage(event.replyToken, echo);
+    return client.replyMessage(event.replyToken, executeAzure());
 }
 
+function executeAzure(){
+  ConnectionDB.on('connect', function(err) {
+      return 'Connected';
+  });
+}
 
 // event handler
 //function handleEvent(event) {
