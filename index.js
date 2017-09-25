@@ -26,6 +26,8 @@ const ConnectionDB = new Connection(configDB);
 ConnectionDB.on('connect', function(err) {
     // If no error, then good to proceed.
         console.log("Connected");
+        var echo2 = { type: 'text', text: ' Connect2'};
+        executeStatement();
     });
 
 
@@ -66,9 +68,9 @@ function handleMessageEvent(event) {
     //    text: 'แสรดดดดดดดดด'
     //  };
 
-    const echo = { type: 'text', text: event.message.text + ' connect1' };
+    const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, echo);
+    return client.replyMessage(event.replyToken, echo + echo2);
 }
 
 
