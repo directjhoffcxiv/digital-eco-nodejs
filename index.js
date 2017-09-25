@@ -20,12 +20,13 @@ var configDB = {
     server: 'digitaleco.database.windows.net',
     options: {encrypt: true, database: 'Digital_ECO'}
 };
-var Connection = new Connection(configDB);
-Connection.on('connect', function(err) {
+const ConnectionDB = new Connection(configDB);
+//Connection = new Connection(configDB);
+/*Connection.on('connect', function(err) {
     // If no error, then good to proceed.
         console.log("Connected");
     });
-
+*/
 
 // create LINE SDK client
 const client = new line.Client(config);
