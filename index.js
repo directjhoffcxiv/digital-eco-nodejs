@@ -62,8 +62,9 @@ function handleMessageEvent(event) {
 
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, function(callback){
-      callback('connected');
+    return client.replyMessage(event.replyToken, function(cb){
+      var text1 = 'connected';
+      cb(text1);
     });
 }
 
