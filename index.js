@@ -5,12 +5,20 @@ const express = require('express');
 
 // create LINE SDK config from env variables
 const config = {
-  //channelAccessToken: 'N1GTeUQXeB77zQpSTKeoprctXQDZI1OQPAJNfuDZVHgUHBEeY2zPQXiLG7dOhFodGwCu1PXFv+bY/wDAODAFN+rpKMLoQaUYjJGdxNIMWGcOMy7sbNjv8mDcMrFSw4HpMn2VmSR0s+CgY4kHc7BMDwdB04t89/1O/w1cDnyilFU=',
-  //channelSecret: 'b99029980da84da3980d785cf5737d6'
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
   channelSecret: process.env.CHANNEL_SECRET,
+  //channelAccessToken: 'N1GTeUQXeB77zQpSTKeoprctXQDZI1OQPAJNfuDZVHgUHBEeY2zPQXiLG7dOhFodGwCu1PXFv+bY/wDAODAFN+rpKMLoQaUYjJGdxNIMWGcOMy7sbNjv8mDcMrFSw4HpMn2VmSR0s+CgY4kHc7BMDwdB04t89/1O/w1cDnyilFU=',
+  //channelSecret: 'b99029980da84da3980d785cf5737d63'
 };
 
+var  Connection = require('tedious').Connection;
+var configDB = {
+    userName: 'anuwatk',
+    password: 'L@nnacom@1',
+    server: 'digitaleco.database.windows.net',
+    options: {encrypt: true, database: 'Digital_ECO'}
+};
+var Connection = new Connection(configDB);
 // create LINE SDK client
 const client = new line.Client(config);
 
@@ -47,7 +55,10 @@ function handleMessageEvent(event) {
     //    type: 'text',
     //    text: 'แสรดดดดดดดดด'
     //  };
-    const echo = { type: 'text', text: event.message.text };
+    Connection.on('connect',function(err){
+      const echo = { type: 'text', text:'connect' };
+    });
+    //const echo = { type: 'text', text: event.message.text };
 
     return client.replyMessage(event.replyToken, echo);
 }
