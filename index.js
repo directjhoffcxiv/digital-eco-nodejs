@@ -62,16 +62,15 @@ function handleMessageEvent(event) {
    var text1 = { type: 'text', text: 'สาดดดดดด'};
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, executeAzure());
+    return client.replyMessage(event.replyToken, echo + executeAzure());
 }
 
 function executeAzure(){
-  /*
+
   ConnectionDB.on('connect', function(err) {
-      return 'Connected';
+      return { type: 'text', text: ' Connected'};
   });
-  */
-  return { type: 'text', text: 'สาดดดดดดk'};
+//return { type: 'text', text: 'สาดดดดดดk'};
 }
 
 // event handler
