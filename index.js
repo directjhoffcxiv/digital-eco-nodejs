@@ -68,7 +68,7 @@ function handleMessageEvent(event) {
       echo2 = "not null";
     }
 
-    return client.replyMessage(event.replyToken, echo2);
+    return client.replyMessage(event.replyToken, echo);
 }
 
 
