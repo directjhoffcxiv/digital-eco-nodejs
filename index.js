@@ -62,7 +62,9 @@ function handleMessageEvent(event) {
 
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, executeAzure());
+    return client.replyMessage(event.replyToken, function(callback){
+      callback('connected');
+    });
 }
 
 function executeAzure(){
