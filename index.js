@@ -21,12 +21,13 @@ var configDB = {
     options: {encrypt: true, database: 'Digital_ECO'}
 };
 const ConnectionDB = new Connection(configDB);
+
 //Connection = new Connection(configDB);
-/*Connection.on('connect', function(err) {
+ConnectionDB.on('connect', function(err) {
     // If no error, then good to proceed.
         console.log("Connected");
     });
-*/
+
 
 // create LINE SDK client
 const client = new line.Client(config);
