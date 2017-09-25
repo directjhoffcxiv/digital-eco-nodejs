@@ -12,7 +12,7 @@ const config = {
   //channelSecret: 'b99029980da84da3980d785cf5737d63'
 };
 
-var echo2 = '';
+var echo2 = { type: 'text', text: ' '};
 //var  Connection = require('tedious').Connection;
 var configDB = {
     userName: 'anuwatk',
@@ -25,8 +25,9 @@ const ConnectionDB = new Connection(configDB);
 //Connection = new Connection(configDB);
 ConnectionDB.on('connect', function(err) {
     // If no error, then good to proceed.
-        console.log("Connected");
-        echo2 = ' connect2';
+        //console.log("Connected");
+        echo2 = ' connected';
+        console.log(echo2);
         //const echo2 = { type: 'text', text: ' Connect2'};
         //executeStatement();
     });
@@ -43,7 +44,6 @@ const app = express();
 // about the middleware, please refer to doc
 app.post('/webhook', line.middleware(config), (req, res) => {
   Promise
-      //client.replyMessage('1234556');
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result));
 });
@@ -66,7 +66,7 @@ function handleMessageEvent(event) {
 
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, echo+echo2);
+    return client.replyMessage(event.replyToken, echo + echo2);
 }
 
 
