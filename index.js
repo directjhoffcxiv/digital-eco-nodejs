@@ -26,7 +26,7 @@ const ConnectionDB = new Connection(configDB);
 ConnectionDB.on('connect', function(err) {
     // If no error, then good to proceed.
         console.log("Connected");
-        var echo2 = { type: 'text', text: ' Connect2'};
+        const echo2 = { type: 'text', text: ' Connect2'};
         //executeStatement();
     });
 
