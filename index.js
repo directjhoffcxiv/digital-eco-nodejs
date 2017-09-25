@@ -2,7 +2,7 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
-const Connection = require('tedious').Connection;
+//const Connection = require('tedious').Connection;
 
 // create LINE SDK config from env variables
 const config = {
