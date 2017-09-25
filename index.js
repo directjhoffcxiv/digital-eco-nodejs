@@ -12,20 +12,20 @@ const config = {
   //channelSecret: 'b99029980da84da3980d785cf5737d63'
 };
 
-/*
-var  Connection = require('tedious').Connection;
+
+//var  Connection = require('tedious').Connection;
 var configDB = {
     userName: 'anuwatk',
     password: 'L@nnacom@1',
     server: 'digitaleco.database.windows.net',
     options: {encrypt: true, database: 'Digital_ECO'}
 };
-var ConnectionDB = new Connection(configDB);
-ConnectionDB.on('connect', function(err) {
+var Connection = new Connection(configDB);
+Connection.on('connect', function(err) {
     // If no error, then good to proceed.
         console.log("Connected");
     });
-*/
+
 
 // create LINE SDK client
 const client = new line.Client(config);
@@ -64,7 +64,7 @@ function handleMessageEvent(event) {
     //    text: 'แสรดดดดดดดดด'
     //  };
 
-    const echo = { type: 'text', text: event.message.text + 'connect' };
+    const echo = { type: 'text', text: event.message.text + ' connect1' };
 
     return client.replyMessage(event.replyToken, echo);
 }
