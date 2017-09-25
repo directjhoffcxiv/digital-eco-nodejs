@@ -14,6 +14,7 @@ const config = {
 
 var echo2 = { type: 'text', text: ' '};
 //var  Connection = require('tedious').Connection;
+/*
 var configDB = {
     userName: 'anuwatk',
     password: 'L@nnacom@1',
@@ -22,6 +23,7 @@ var configDB = {
 };
 
 const ConnectionDB = new Connection(configDB);
+*/
 /*
 //Connection = new Connection(configDB);
 ConnectionDB.on('connect', function(err) {
@@ -67,6 +69,15 @@ function handleMessageEvent(event) {
 
 function executeAzure(){
 
+  var configDB = {
+      userName: 'anuwatk',
+      password: 'L@nnacom@1',
+      server: 'digitaleco.database.windows.net',
+      options: {encrypt: true, database: 'Digital_ECO'}
+  };
+
+  const ConnectionDB = new Connection(configDB);
+
   ConnectionDB.on('connect', function(err) {
     if(err)
     {
@@ -74,7 +85,7 @@ function executeAzure(){
     }else {
       return { type: 'text', text: ' Connected'};
     }
-      
+
   });
 //return { type: 'text', text: 'สาดดดดดดk'};
 }
