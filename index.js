@@ -59,7 +59,7 @@ function handleEvent(event) {
 }
 
 function handleMessageEvent(event) {
-  var text1 = 'test';
+   var text1 = { type: 'text', text: 'สาดดดดดด'};
     const echo = { type: 'text', text: event.message.text };
 
     return client.replyMessage(event.replyToken, text1);
