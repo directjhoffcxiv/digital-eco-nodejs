@@ -66,7 +66,7 @@ function handleMessageEvent(event) {
 
     const echo = { type: 'text', text: event.message.text };
 
-    return client.replyMessage(event.replyToken, echo + echo2);
+    return client.replyMessage(event.replyToken, echo);
 }
 
 
