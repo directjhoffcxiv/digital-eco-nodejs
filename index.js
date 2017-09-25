@@ -3,7 +3,6 @@
 const line = require('@line/bot-sdk');
 const express = require('express');
 
-require('dotenv').config();
 // create LINE SDK config from env variables
 const config = {
   channelAccessToken: 'N1GTeUQXeB77zQpSTKeoprctXQDZI1OQPAJNfuDZVHgUHBEeY2zPQXiLG7dOhFodGwCu1PXFv+bY/wDAODAFN+rpKMLoQaUYjJGdxNIMWGcOMy7sbNjv8mDcMrFSw4HpMn2VmSR0s+CgY4kHc7BMDwdB04t89/1O/w1cDnyilFU=',
