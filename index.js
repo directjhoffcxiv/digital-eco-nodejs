@@ -68,7 +68,13 @@ function handleMessageEvent(event) {
 function executeAzure(){
 
   ConnectionDB.on('connect', function(err) {
+    if(err)
+    {
+      return { type: 'text', text: 'not Connected'};
+    }else {
       return { type: 'text', text: ' Connected'};
+    }
+      
   });
 //return { type: 'text', text: 'สาดดดดดดk'};
 }
