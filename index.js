@@ -62,6 +62,9 @@ function handleMessageEvent(event,value) {
 
 
     const echo = { type: 'text', text: event.message.text };
+    if(value == null){
+      value = 'null';
+    }
 
     return client.replyMessage(event.replyToken, value);
 }
