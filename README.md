@@ -15,7 +15,6 @@ Configuration:
 ``` bash
 $ export CHANNEL_SECRET=YOUR_CHANNEL_SECRET
 $ export CHANNEL_ACCESS_TOKEN=YOUR_CHANNEL_ACCESS_TOKEN
-$ export PORT=1234
 ```
 
 Run:
