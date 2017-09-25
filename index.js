@@ -2,7 +2,7 @@
 
 const line = require('@line/bot-sdk');
 const express = require('express');
-//const Connection = require('tedious').Connection;
+const Connection = require('tedious').Connection;
 
 // create LINE SDK config from env variables
 const config = {
@@ -11,6 +11,7 @@ const config = {
   //channelAccessToken: 'N1GTeUQXeB77zQpSTKeoprctXQDZI1OQPAJNfuDZVHgUHBEeY2zPQXiLG7dOhFodGwCu1PXFv+bY/wDAODAFN+rpKMLoQaUYjJGdxNIMWGcOMy7sbNjv8mDcMrFSw4HpMn2VmSR0s+CgY4kHc7BMDwdB04t89/1O/w1cDnyilFU=',
   //channelSecret: 'b99029980da84da3980d785cf5737d63'
 };
+
 /*
 var  Connection = require('tedious').Connection;
 var configDB = {
