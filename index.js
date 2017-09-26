@@ -69,9 +69,43 @@ function handleMessageEvent(event) {
 
 function executeAzure(){
   var temp2 = 'สาดดดดดดดด2'
-return { type: 'text', text: temp2};
+  connectionDB.on('connect', function(err){
+    var temp3 = executeStatement(function(Result){
+      if(Result){
+        //console.log(Result);
+        return { type: 'text', text: Result};
+      }
+    });
+  });
+//return { type: 'text', text: temp2};
 }
 
+function executeStatement(done){
+var  request = new Request("SELECT * FROM [dbo].[Alluser]",function(err){
+    if(err){
+      console.log(err);}
+      connectionDB.close();
+  });
+
+  var result = "";
+  request.on('row',function(columns){
+    columns.forEach(function(column){
+      if(column.value === null){
+        console.log('NULL');
+      }else {
+        result += column.value + " ";
+      }
+    });
+    //console.log(result);
+    done(result);
+    //result ="";
+    });
+      request.on('done',function(rowCount, more){
+      console.log(rowCount + 'rows Returned');
+  });
+  connectionDB.execSql(request);
+  return result;
+}
 
 // event handler
 //function handleEvent(event) {

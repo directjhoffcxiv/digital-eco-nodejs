@@ -10,18 +10,25 @@ var configDB = {
     server: 'digitaleco.database.windows.net',
     options: {encrypt: true, database: 'Digital_ECO'}
 };
+var G_BB ='1';
+var Request = require('tedious').Request;
+var TYPES = require('tedious').TYPES;
 
     var connectionDB = new Connection(configDB);
       connectionDB.on('connect', function(err) {
-          console.log("Connected");
-          executeStatement();
-
+        console.log("Connected");
+        //executeStatement();
+        var temp3 = executeStatement(function(Result){
+          if(Result){
+            console.log(Result);
+          }
+        });
+        //console.log(temp3);
+        //console.log(G_BB);
       });
 
-    var Request = require('tedious').Request;
-    var TYPES = require('tedious').TYPES;
+    function executeStatement(done){
 
-    function executeStatement(){
     var  request = new Request("SELECT * FROM [dbo].[Alluser]",function(err){
         if(err){
           console.log(err);}
@@ -37,11 +44,16 @@ var configDB = {
             result += column.value + " ";
           }
         });
-        console.log(result);
-        result ="";
+        //console.log(result);
+        G_BB = result;
+        done(result);
+        //console.log(G_BB);
+        //result ="";
         });
           request.on('done',function(rowCount, more){
-          console.log(rowCount + 'rows Returned');
+          //console.log(rowCount + 'rows Returned');
+
       });
       connectionDB.execSql(request);
+
     }
