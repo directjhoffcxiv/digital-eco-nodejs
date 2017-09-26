@@ -22,6 +22,8 @@ var configDB = {
 };
 
 const ConnectionDB = new Connection(configDB);
+var Request = require('tedious').Request;
+var TYPES = require('tedious').TYPES;
 /*
 //Connection = new Connection(configDB);
 ConnectionDB.on('connect', function(err) {
@@ -66,13 +68,10 @@ function handleMessageEvent(event) {
 }
 
 function executeAzure(){
-/*
-  ConnectionDB.on('connect', function(err) {
-      return { type: 'text', text: ' Connected'};
-  });
-  */
-return { type: 'text', text: 'สาดดดดดดk'};
+  var temp2 = 'สาดดดดดดดด2'
+return { type: 'text', text: temp2};
 }
+
 
 // event handler
 //function handleEvent(event) {
